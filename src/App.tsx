@@ -287,68 +287,66 @@ export default function App() {
               
               <div className="p-8 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNlNTVhNTQiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] h-full">
                 {image ? (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-12 justify-items-center items-end pb-12">
-                    <IconPreview 
-                      image={image} 
-                      size={192} 
-                      padding={padding} 
-                      backgroundColor={backgroundColor} 
-                      isTransparent={isTransparent}
-                      shape={shape}
-                      applyShape={applyShape}
-                      label="xxxhdpi"
-                    />
-                    <IconPreview 
-                      image={image} 
-                      size={144} 
-                      padding={padding} 
-                      backgroundColor={backgroundColor} 
-                      isTransparent={isTransparent}
-                      shape={shape}
-                      applyShape={applyShape}
-                      label="xxhdpi"
-                    />
-                    <IconPreview 
-                      image={image} 
-                      size={96} 
-                      padding={padding} 
-                      backgroundColor={backgroundColor} 
-                      isTransparent={isTransparent}
-                      shape={shape}
-                      applyShape={applyShape}
-                      label="xhdpi"
-                    />
-                    <IconPreview 
-                      image={image} 
-                      size={72} 
-                      padding={padding} 
-                      backgroundColor={backgroundColor} 
-                      isTransparent={isTransparent}
-                      shape={shape}
-                      applyShape={applyShape}
-                      label="hdpi"
-                    />
-                    <IconPreview 
-                      image={image} 
-                      size={48} 
-                      padding={padding} 
-                      backgroundColor={backgroundColor} 
-                      isTransparent={isTransparent}
-                      shape={shape}
-                      applyShape={applyShape}
-                      label="mdpi"
-                    />
-                    <div className="col-span-2 sm:col-span-3 mt-8 pt-8 border-t-4 border-dashed border-black/20 w-full flex flex-col items-center">
-                        <IconPreview 
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                    {[
+                      { density: 'xxxhdpi', size: 192 },
+                      { density: 'xxhdpi', size: 144 },
+                      { density: 'xhdpi', size: 96 },
+                      { density: 'hdpi', size: 72 },
+                      { density: 'mdpi', size: 48 },
+                    ].map(({ density, size }) => (
+                      <div key={density} className="flex flex-col items-center gap-4">
+                        <h3 className="text-sm font-black text-black uppercase tracking-wide bg-yellow-200 px-3 py-1 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                          {density}
+                        </h3>
+                        <div className="flex flex-col gap-2">
+                          <IconPreview 
+                            image={image} 
+                            size={size} 
+                            padding={padding} 
+                            backgroundColor={backgroundColor} 
+                            isTransparent={isTransparent}
+                            shape="legacy"
+                            applyShape={applyShape}
+                            label={`ic_launcher.png (${density})`}
+                          />
+                          <IconPreview 
+                            image={image} 
+                            size={size} 
+                            padding={padding} 
+                            backgroundColor={backgroundColor} 
+                            isTransparent={isTransparent}
+                            shape="legacy"
+                            applyShape={applyShape}
+                            label={`ic_launcher_foreground.png (${density})`}
+                          />
+                          <IconPreview 
+                            image={image} 
+                            size={size} 
+                            padding={padding} 
+                            backgroundColor={backgroundColor} 
+                            isTransparent={isTransparent}
+                            shape="round"
+                            applyShape={applyShape}
+                            label={`ic_launcher_round.png (${density})`}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                    <div className="flex flex-col items-center gap-4 col-span-1 sm:col-span-2 lg:col-span-3">
+                      <h3 className="text-sm font-black text-black uppercase tracking-wide bg-yellow-200 px-3 py-1 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        Play Store
+                      </h3>
+                      <IconPreview 
                         image={image} 
                         size={512} 
                         padding={padding} 
                         backgroundColor={backgroundColor} 
                         isTransparent={isTransparent}
-                        shape={shape}
+                        shape="legacy"
                         applyShape={applyShape}
-                        label="Play Store"
-                        />
+                        label="ic_launcher-web.png"
+                      />
                     </div>
                   </div>
                 ) : (
