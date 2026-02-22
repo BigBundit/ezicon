@@ -89,14 +89,7 @@ export const generateIcons = async (
 ) => {
   const zip = new JSZip();
   // Create mipmap folders
-  const sizes = [
-    { name: 'ic_launcher.png', size: 48, folder: 'mipmap-mdpi' },
-    { name: 'ic_launcher.png', size: 72, folder: 'mipmap-hdpi' },
-    { name: 'ic_launcher.png', size: 96, folder: 'mipmap-xhdpi' },
-    { name: 'ic_launcher.png', size: 144, folder: 'mipmap-xxhdpi' },
-    { name: 'ic_launcher.png', size: 192, folder: 'mipmap-xxxhdpi' },
-    { name: 'ic_launcher-web.png', size: 512, folder: '.' },
-  ];
+  const sizes = ANDROID_ICON_SIZES;
 
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
