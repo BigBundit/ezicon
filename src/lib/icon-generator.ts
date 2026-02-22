@@ -9,10 +9,20 @@ export type IconSize = {
 
 export const ANDROID_ICON_SIZES: IconSize[] = [
   { name: 'ic_launcher.png', size: 48, folder: 'mipmap-mdpi' },
+  { name: 'ic_launcher_foreground.png', size: 48, folder: 'mipmap-mdpi' },
+  { name: 'ic_launcher_round.png', size: 48, folder: 'mipmap-mdpi' },
   { name: 'ic_launcher.png', size: 72, folder: 'mipmap-hdpi' },
+  { name: 'ic_launcher_foreground.png', size: 72, folder: 'mipmap-hdpi' },
+  { name: 'ic_launcher_round.png', size: 72, folder: 'mipmap-hdpi' },
   { name: 'ic_launcher.png', size: 96, folder: 'mipmap-xhdpi' },
+  { name: 'ic_launcher_foreground.png', size: 96, folder: 'mipmap-xhdpi' },
+  { name: 'ic_launcher_round.png', size: 96, folder: 'mipmap-xhdpi' },
   { name: 'ic_launcher.png', size: 144, folder: 'mipmap-xxhdpi' },
+  { name: 'ic_launcher_foreground.png', size: 144, folder: 'mipmap-xxhdpi' },
+  { name: 'ic_launcher_round.png', size: 144, folder: 'mipmap-xxhdpi' },
   { name: 'ic_launcher.png', size: 192, folder: 'mipmap-xxxhdpi' },
+  { name: 'ic_launcher_foreground.png', size: 192, folder: 'mipmap-xxxhdpi' },
+  { name: 'ic_launcher_round.png', size: 192, folder: 'mipmap-xxxhdpi' },
   { name: 'ic_launcher-web.png', size: 512, folder: '.' }, // Play Store icon
 ];
 
