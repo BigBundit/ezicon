@@ -31,7 +31,7 @@ interface GenerateOptions {
   padding: number; // 0 to 0.5 (0% to 50%)
   backgroundColor: string; // hex or rgba
   isTransparent: boolean;
-  shape: 'square' | 'circle' | 'squircle'; // For masking if applied
+  shape: 'legacy' | 'round' | 'squircle'; // For masking if applied
   applyShape: boolean; // Whether to actually crop the output image
 }
 
@@ -42,7 +42,7 @@ export function drawIcon(
   padding: number, // 0 to 0.5
   backgroundColor: string,
   isTransparent: boolean,
-  shape: 'square' | 'circle' | 'squircle',
+  shape: 'legacy' | 'round' | 'squircle',
   applyShape: boolean
 ) {
   const width = size;
@@ -93,7 +93,7 @@ export const generateIcons = async (
     padding: number;
     backgroundColor: string;
     isTransparent: boolean;
-    shape: 'square' | 'circle' | 'squircle';
+    shape: 'legacy' | 'round' | 'squircle';
     applyShape: boolean;
   }
 ) => {
@@ -134,13 +134,13 @@ export const generateIcons = async (
   saveAs(content, 'android_icons.zip');
 };
 
-function drawShapePath(ctx: CanvasRenderingContext2D, width: number, height: number, shape: 'square' | 'circle' | 'squircle') {
+function drawShapePath(ctx: CanvasRenderingContext2D, width: number, height: number, shape: 'legacy' | 'round' | 'squircle') {
   ctx.beginPath();
   const centerX = width / 2;
   const centerY = height / 2;
   const size = Math.min(width, height);
 
-  if (shape === 'circle') {
+  if (shape === 'round') {
     ctx.arc(centerX, centerY, size / 2, 0, Math.PI * 2);
   } else if (shape === 'squircle') {
     // Squircle path

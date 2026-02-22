@@ -16,7 +16,7 @@ export default function App() {
   const [padding, setPadding] = useState(0);
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
   const [isTransparent, setIsTransparent] = useState(true);
-  const [shape, setShape] = useState<'square' | 'circle' | 'squircle'>('square');
+  const [shape, setShape] = useState<'legacy' | 'round' | 'squircle'>('legacy');
   const [applyShape, setApplyShape] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
 
@@ -218,7 +218,7 @@ export default function App() {
                     </div>
                   </div>
                   <div className="grid grid-cols-3 gap-3">
-                    {(['square', 'squircle', 'circle'] as const).map((s) => (
+                    {(['legacy', 'squircle', 'round'] as const).map((s) => (
                       <button
                         key={s}
                         onClick={() => setShape(s)}
@@ -231,9 +231,9 @@ export default function App() {
                       >
                         <div className={cn(
                           "w-6 h-6 bg-current opacity-80 border border-black",
-                          s === 'circle' && "rounded-full",
+                          s === 'round' && "rounded-full",
                           s === 'squircle' && "rounded-[22%]",
-                          s === 'square' && "rounded-none"
+                          s === 'legacy' && "rounded-none"
                         )} />
                         <span className="text-[10px] uppercase font-black">{s}</span>
                       </button>

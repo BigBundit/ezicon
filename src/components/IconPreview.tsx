@@ -7,7 +7,7 @@ interface IconPreviewProps {
   padding: number;
   backgroundColor: string;
   isTransparent: boolean;
-  shape: 'square' | 'circle' | 'squircle';
+  shape: 'legacy' | 'round' | 'squircle';
   applyShape: boolean;
   label: string;
 }
